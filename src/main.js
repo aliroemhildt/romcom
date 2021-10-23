@@ -4,16 +4,19 @@ var randomCoverButton = document.querySelector(".random-cover-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
 var viewSavedCoversButton = document.querySelector(".view-saved-button");
 var makeNewCoverButton = document.querySelector(".make-new-button");
+
 // Cover elements
 var coverImage = document.querySelector(".cover-image");
 var coverTitle = document.querySelector(".cover-title");
 var tagline1 = document.querySelector(".tagline-1");
 var tagline2 = document.querySelector(".tagline-2");
+
 // Views
 var homeView = document.querySelector(".home-view");
 var formView = document.querySelector(".form-view");
 var savedView = document.querySelector(".saved-view");
-var savedCoverSection = document.querySelector(".saved-covers-section"); 
+var savedCoverSection = document.querySelector(".saved-covers-section");
+
 // Form elements
 var userInputCover = document.querySelector(".user-cover");
 var userInputTitle = document.querySelector(".user-title");
@@ -21,9 +24,10 @@ var userInputDesc1 = document.querySelector(".user-desc1");
 var userInputDesc2 = document.querySelector(".user-desc2");
 var createNewBookButton = document.querySelector(".create-new-book-button");
 
+// Variables
 var savedCovers = [];
-var currentCover = {}
 
+// Event Listeners
 document.addEventListener("DOMContentLoaded", getRandomCover);
 randomCoverButton.addEventListener("click", getRandomCover);
 makeNewCoverButton.addEventListener("click", makeYourOwnCoverClicked);
@@ -33,7 +37,7 @@ createNewBookButton.addEventListener("click", createNewCover);
 saveCoverButton.addEventListener("click", saveCover);
 savedCoverSection.addEventListener("dblclick", removeCover);
 
-
+//Functions
 function getRandomCover() {
   var currentCover = new Cover(covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], descriptors[getRandomIndex(descriptors)]);
   coverImage.src = currentCover.cover;
@@ -100,11 +104,13 @@ function saveCover(){
   var savedCover = new Cover(savedCoverImage,savedTitle,savedDesc1,savedDesc2)
   var originalCover = true
   for(var i = 0 ; i < savedCovers.length ; i++) {
+    // is there a more concise way to write this conditional?
     if(savedCoverImage === savedCovers[i].cover && savedTitle === savedCovers[i].title && savedDesc1 === savedCovers[i].tagline1 && savedDesc2 === savedCovers[i].tagline2) {
         originalCover = false;
         alert("This Cover has already been saved!")
     }
   }
+  // can this conditional be written with as a truthy instead of === ?
   if (originalCover === true) {
     savedCovers.push(savedCover);
   }
@@ -119,8 +125,7 @@ function createNewCover(){
       coverTitle.innerText = userInputTitle.value;
       tagline1.innerText = userInputDesc1.value;
       tagline2.innerText = userInputDesc2.value;
-      currentCover = new Cover(coverImage.src, coverTitle.innerText, tagline1.innerText, tagline2.innerText);
-      pushValuesToArray();
+      var currentCover = new Cover(coverImage.src, coverTitle.innerText, tagline1.innerText, tagline2.innerText);
       homeButtonClicked();
       document.querySelector("form").reset();
     };
@@ -131,17 +136,17 @@ function pushValuesToArray(){
   titles.push(userInputTitle.value);
   descriptors.push(userInputDesc1.value);
   descriptors.push(userInputDesc2.value);
-}
+};
 
 function removeCover(event) {
-  var coverId = event.target.id
+  var coverId = event.target.id;
   for(var i=0;i<savedCovers.length;i++){
     if(coverId === `${savedCovers[i].id}`){
       savedCovers.splice(i,1)
-    }
-  }
-viewSavedCoversClicked();
-}
+    };
+  };
+  viewSavedCoversClicked();
+};
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
