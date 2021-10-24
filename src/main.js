@@ -123,6 +123,7 @@ function createNewCover(){
       coverTitle.innerText = userInputTitle.value;
       tagline1.innerText = userInputDesc1.value;
       tagline2.innerText = userInputDesc2.value;
+      pushValuesToArray();
       homeButtonClicked();
       document.querySelector("form").reset();
     };
