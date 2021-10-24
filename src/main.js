@@ -67,7 +67,7 @@ function viewSavedCoversClicked() {
   makeNewCoverButton.classList.remove('hidden');
   randomCoverButton.classList.add('hidden');
   viewSavedCoversButton.classList.remove('hidden');
-  savedCoverSection.innerHTML = ``;
+  savedCoverSection.innerHTML = '';
   showSavedCovers();
 };
 
@@ -81,40 +81,40 @@ function homeButtonClicked() {
   randomCoverButton.classList.remove('hidden');
   viewSavedCoversButton.classList.remove('hidden');
   savedCoverSection.innerHTML = ``;
-}
+};
 
-function showSavedCovers(){
-  var len = savedCovers.length
-  for(var i=0;i<len;i++){
+function showSavedCovers() {
+  var len = savedCovers.length;
+  for(var i=0; i<len; i++) {
     savedCoverSection.innerHTML += `
     <section class="mini-cover">
         <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].cover}">
         <h2 class="cover-title">${savedCovers[i].title}</h2>
         <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
       </section>
-    `
-  }
-}
+    `;
+  };
+};
 
-function saveCover(){
-  var savedCoverImage = coverImage.src
-  var savedTitle = coverTitle.innerText
-  var savedDesc1 = tagline1.innerText
-  var savedDesc2 = tagline2.innerText
-  var savedCover = new Cover(savedCoverImage,savedTitle,savedDesc1,savedDesc2)
-  var originalCover = true
-  for(var i = 0 ; i < savedCovers.length ; i++) {
+function saveCover() {
+  var savedCoverImage = coverImage.src;
+  var savedTitle = coverTitle.innerText;
+  var savedDesc1 = tagline1.innerText;
+  var savedDesc2 = tagline2.innerText;
+  var savedCover = new Cover(savedCoverImage,savedTitle,savedDesc1,savedDesc2);
+  var originalCover = true;
+  for(var i = 0; i < savedCovers.length; i++) {
     if(savedCoverImage === savedCovers[i].cover && savedTitle === savedCovers[i].title && savedDesc1 === savedCovers[i].tagline1 && savedDesc2 === savedCovers[i].tagline2) {
         originalCover = false;
-        alert("This Cover has already been saved!")
-    }
-  }
+        alert("This Cover has already been saved!");
+    };
+  };
   if (originalCover) {
     savedCovers.push(savedCover);
-  }
-}
+  };
+};
 
-function createNewCover(){
+function createNewCover() {
   event.preventDefault();
   if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
     alert("Please fill out all fields");
@@ -129,7 +129,7 @@ function createNewCover(){
     };
 };
 
-function pushValuesToArray(){
+function pushValuesToArray() {
   covers.push(userInputCover.value);
   titles.push(userInputTitle.value);
   descriptors.push(userInputDesc1.value);
@@ -138,9 +138,9 @@ function pushValuesToArray(){
 
 function removeCover(event) {
   var coverId = event.target.id;
-  for(var i=0;i<savedCovers.length;i++){
-    if(coverId === `${savedCovers[i].id}`){
-      savedCovers.splice(i,1)
+  for(var i=0; i<savedCovers.length; i++) {
+    if(coverId === `${savedCovers[i].id}`) {
+      savedCovers.splice(i, 1);
     };
   };
   viewSavedCoversClicked();
