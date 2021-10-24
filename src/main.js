@@ -104,14 +104,12 @@ function saveCover(){
   var savedCover = new Cover(savedCoverImage,savedTitle,savedDesc1,savedDesc2)
   var originalCover = true
   for(var i = 0 ; i < savedCovers.length ; i++) {
-    // is there a more concise way to write this conditional?
     if(savedCoverImage === savedCovers[i].cover && savedTitle === savedCovers[i].title && savedDesc1 === savedCovers[i].tagline1 && savedDesc2 === savedCovers[i].tagline2) {
         originalCover = false;
         alert("This Cover has already been saved!")
     }
   }
-  // can this conditional be written with as a truthy instead of === ?
-  if (originalCover === true) {
+  if (originalCover) {
     savedCovers.push(savedCover);
   }
 }
@@ -125,7 +123,6 @@ function createNewCover(){
       coverTitle.innerText = userInputTitle.value;
       tagline1.innerText = userInputDesc1.value;
       tagline2.innerText = userInputDesc2.value;
-      var currentCover = new Cover(coverImage.src, coverTitle.innerText, tagline1.innerText, tagline2.innerText);
       homeButtonClicked();
       document.querySelector("form").reset();
     };
