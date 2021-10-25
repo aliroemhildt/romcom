@@ -13,13 +13,13 @@ To create your own cover, click the “Make Your Own Cover” button. This will 
 [GitHub test site](https://ejimenezsoto.github.io/romcom/)
 
 **Main Page**
-<iframe src="https://giphy.com/embed/olwFbvjMBEOlSwyCYJ" width="480" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/olwFbvjMBEOlSwyCYJ">via GIPHY</a></p>
+![Main Page](https://media.giphy.com/media/olwFbvjMBEOlSwyCYJ/giphy.gif)
 
 **Saved Covers Page**
-<iframe src="https://giphy.com/embed/QNf3v903gdICSgBDAQ" width="480" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/QNf3v903gdICSgBDAQ">via GIPHY</a></p>
+![Saved Covers Page](https://media.giphy.com/media/QNf3v903gdICSgBDAQ/giphy.gif)
 
 **Make Your Own Cover Page**
-<div style="width:100%;height:0;padding-bottom:63%;position:relative;"><iframe src="https://giphy.com/embed/5mCaBZYj9Jbl9pbIWG" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/5mCaBZYj9Jbl9pbIWG">via GIPHY</a></p>
+![Make Your Own Cover Page](https://media.giphy.com/media/5mCaBZYj9Jbl9pbIWG/giphy.gif)
 
 ## Set Up
 1. ONE teammate: fork this boilerplate repository 
