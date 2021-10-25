@@ -1,6 +1,6 @@
 # RomCom
 
-This is a webpage that generates romance novel covers.
+This is a webpage that generates random romance novel covers.
 
 ## Description
 When the page loads, you will see a randomly generated romance novel cover. Click the “Show New Random Cover” button to generate a new cover. If you like a cover, click the “Save Cover” button to add it to the saved section.
